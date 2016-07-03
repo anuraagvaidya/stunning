@@ -18,6 +18,7 @@ To achieve the ability to run on multiple platforms, the renderer is written in 
 ## Usage ##
 
 ### Static Object ###
+    var StunningLib=require('stunning');
     var Stunning=StunningLib.Stunning; //Import Stunning
     var Container=StunningLib.Container; //Import the Container tool
 
@@ -30,6 +31,7 @@ To achieve the ability to run on multiple platforms, the renderer is written in 
         })
     });
 ### Animating Object ###
+    var StunningLib=require('stunning')
     var Stunning=StunningLib.Stunning; //Import Stunning
     var Container=StunningLib.Container;  //Import the Container tool
 
