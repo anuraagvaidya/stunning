@@ -1,7 +1,7 @@
 {
   "name": "stunning",
-  "version": "1.0.0",
-  "description": "An extensive hardware-accelerated and cross-platform windowing (GUI) framework",
+  "version": "1.0.1",
+  "description": "An extensive hardware-accelerated and cross-platform windowing (GUI) framework for NodeJS",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,6 +11,11 @@
     "url": "git+https://github.com/anuraagvaidya/stunning.git"
   },
   "keywords": [
+    "Desktop",
+    "UI",
+    "Fast",
+    "Window",
+    "Animation",
     "GUI",
     "Windows",
     "OS",
