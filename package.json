@@ -1,6 +1,6 @@
 {
   "name": "stunning",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "An extensive hardware-accelerated and cross-platform windowing (GUI) framework for NodeJS",
   "main": "index.js",
   "scripts": {

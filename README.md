@@ -18,81 +18,93 @@ To achieve the ability to run on multiple platforms, the renderer is written in 
 ## Usage ##
 
 ### Static Object ###
-    var StunningLib=require('stunning');
-    var Stunning=StunningLib.Stunning; //Import Stunning
-    var Container=StunningLib.Container; //Import the Container tool
 
-    Stunning.on('ready',function(){
-        var window=Stunning.createWindow(); //Create a window
-        window.set({title:"My Window",width:800,height:600});
-        window.on('create',function(){
-            var cont=new Container(window); //Create a container
-            cont.set({foregroundColor: '#ffff00'}); //set style
-        })
-    });
+```javascript
+var StunningLib=require('stunning');
+var Stunning=StunningLib.Stunning; //Import Stunning
+var Container=StunningLib.Container; //Import the Container tool
+
+Stunning.on('ready',function(){
+    var window=Stunning.createWindow(); //Create a window
+    window.set({title:"My Window",width:800,height:600});
+    window.on('create',function(){
+        var cont=new Container(window); //Create a container
+        cont.set({foregroundColor: '#ffff00'}); //set style
+    })
+});
+```
+
 ### Animating Object ###
-    var StunningLib=require('stunning')
-    var Stunning=StunningLib.Stunning; //Import Stunning
-    var Container=StunningLib.Container;  //Import the Container tool
 
-    Stunning.on('ready',function(){
-        var window=Stunning.createWindow();
-        window.set({title:"My Window",width:800,height:600});
-        window.on('create',function(){
-            var offset={left:0,top:0};
-            var container=new Container(window);
-            container.set({foregroundColor: '#ffff00'});
+```javascript
+var StunningLib=require('stunning')
+var Stunning=StunningLib.Stunning; //Import Stunning
+var Container=StunningLib.Container;  //Import the Container tool
 
-            setInterval(function(){
-                container.set({left: offset.left,top: offset.top});
-                offset.left++;
-                offset.top++;
-            },20);
-        })
-    });
+Stunning.on('ready',function(){
+    var window=Stunning.createWindow();
+    window.set({title:"My Window",width:800,height:600});
+    window.on('create',function(){
+        var offset={left:0,top:0};
+        var container=new Container(window);
+        container.set({foregroundColor: '#ffff00'});
+
+        setInterval(function(){
+            container.set({left: offset.left,top: offset.top});
+            offset.left++;
+            offset.top++;
+        },20);
+    })
+});
+```
+
 ### Text Support ###
-    var Stunning=StunningLib.Stunning; //Import Stunning
-    var Text=StunningLib.Text;  //Import the Text tool
 
-    Stunning.on('ready',function(){
-        var window=Stunning.createWindow();
-        window.set({title:"My Window",width:800,height:600});
-        window.on('create',function(){
-            var offset={left:0,top:0};
-            var text=new Text(window);
-            text.set({text:'Write something here', fontFamily:'Calibri'});
-            //The font must be installed on the machine
-        })
-    });
+```javascript
+var Stunning=StunningLib.Stunning; //Import Stunning
+var Text=StunningLib.Text;  //Import the Text tool
+
+Stunning.on('ready',function(){
+    var window=Stunning.createWindow();
+    window.set({title:"My Window",width:800,height:600});
+    window.on('create',function(){
+        var offset={left:0,top:0};
+        var text=new Text(window);
+        text.set({text:'Write something here', fontFamily:'Calibri'});
+        //The font must be installed on the machine
+    })
+});
+```
 
 ## Styles supported ##
-|Property||Meaning|
-|---|
-|left||Left offset in pixels|
-|top||Top offset in pixels|
-|width||Width in pixels|
-|height||Height in pixels|
-|scrollTop||Amount of pixels hidden under the parent in y direction in pixels|
-|scrollLeft||Amount of pixels hidden under the parent in x direction in pixels|
-|zoom||Zoom amount, should be between 0 and 1|
-|zoomLeft||Zooming point in x direction|
-|zoomTop||Zooming point in y direction|
-|foregroundColor||Color code in Hexadecimal. e.g. #ff00ff|
-|backgroundImage||Path to a background image|
-|opacity||Opacity between 0 and 1|
+You can pass the below properties in the `component.set()` call.
+
+* left -- Left offset in pixels
+* top -- Top offset in pixels
+* width -- Width in pixels
+* height -- Height in pixels
+* scrollTop -- Amount of pixels hidden under the parent in y direction in pixels
+* scrollLeft -- Amount of pixels hidden under the parent in x direction in pixels
+* zoom -- Zoom amount, should be between 0 and 1
+* zoomLeft -- Zooming point in x direction
+* zoomTop -- Zooming point in y direction
+* foregroundColor -- Color code in Hexadecimal. e.g. #ff00ff
+* backgroundImage -- Path to a background image
+* opacity -- Opacity between 0 and 1
 
 ## Importing from Stunning Designer ##
 There is an ongoing effort to allow developers to design GUI using Stunning by using drag and drop.
 For more info, check (https://github.com/anuraagvaidya/StunningDesigner).
+(Not yet ready)
 
-    (Not yet ready)
-    var components=stunning.importFromFile("filename.stn");
+```javascript
+var components=stunning.importFromFile("filename.stn");
 
-    var window=stunning.createWindow();
-    window.set("size",{height:700, width:1000}); //size in px
-    window.set("icon",{filename:"myicon.ico"});
-    window.add(components);
-
+var window=stunning.createWindow();
+window.set("size",{height:700, width:1000}); //size in px
+window.set("icon",{filename:"myicon.ico"});
+window.add(components);
+```
 
 ## Current Support ##
 Stunning currently supports the following features:
