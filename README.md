@@ -20,59 +20,28 @@ To achieve the ability to run on multiple platforms, the renderer is written in 
 ### Static Object ###
 
 ```javascript
-var StunningLib=require('stunning');
-var Stunning=StunningLib.Stunning; //Import Stunning
-var Container=StunningLib.Container; //Import the Container tool
+var window=Stunning.createWindow();
+window.set({title:"My Window",width:800,height:600});
+window.on('create',function(){
 
-Stunning.on('ready',function(){
-    var window=Stunning.createWindow(); //Create a window
-    window.set({title:"My Window",width:800,height:600});
-    window.on('create',function(){
-        var cont=new Container(window); //Create a container
-        cont.set({foregroundColor: '#ffff00'}); //set style
-    })
-});
-```
+    var textContainer=new Container(window,{width:500,height:200,text:'Type Something',foregroundColor: '#ffff00'});
+    textContainer.event('keydown',function(data){
+        textContainer.set({text:(textContainer.config.text || '')+String.fromCharCode(data.keyCode)});
+    });
 
-### Animating Object ###
-
-```javascript
-var StunningLib=require('stunning')
-var Stunning=StunningLib.Stunning; //Import Stunning
-var Container=StunningLib.Container;  //Import the Container tool
-
-Stunning.on('ready',function(){
-    var window=Stunning.createWindow();
-    window.set({title:"My Window",width:800,height:600});
-    window.on('create',function(){
-        var offset={left:0,top:0};
-        var container=new Container(window);
-        container.set({foregroundColor: '#ffff00'});
-
+    var offset={left:0,top:0};
+    var container0=new Container(window,{width:300,height:200,foregroundColor: '#ffff00'});
+    container0.on('create',function(){
         setInterval(function(){
-            container.set({left: offset.left,top: offset.top});
-            offset.left++;
-            offset.top++;
-        },20);
-    })
-});
-```
-
-### Text Support ###
-
-```javascript
-var Stunning=StunningLib.Stunning; //Import Stunning
-var Text=StunningLib.Text;  //Import the Text tool
-
-Stunning.on('ready',function(){
-    var window=Stunning.createWindow();
-    window.set({title:"My Window",width:800,height:600});
-    window.on('create',function(){
-        var offset={left:0,top:0};
-        var text=new Text(window);
-        text.set({text:'Write something here', fontFamily:'Calibri'});
-        //The font must be installed on the machine
-    })
+            container0.set({left:offset.left++,top:offset.top++});
+        },100);
+    });
+    var container1=new Container(window,{width:300,height:200,foregroundColor: '#ffff'});
+    container1.on('create',function(){
+        setInterval(function(){
+            container1.set({left:500-offset.left++,top:300-offset.top++});
+        },100);
+    });
 });
 ```
 
@@ -88,9 +57,22 @@ You can pass the below properties in the `component.set()` call.
 * zoom -- Zoom amount, should be between 0 and 1
 * zoomLeft -- Zooming point in x direction
 * zoomTop -- Zooming point in y direction
-* foregroundColor -- Color code in Hexadecimal. e.g. #ff00ff
+* foregroundColor -- Color code in Hexadecimal. e.g. #ff00ff or r,g,b,a format
 * backgroundImage -- Path to a background image
-* opacity -- Opacity between 0 and 1
+
+## Events supported ##
+Events must be called with `.event('<eventName>',function(data){ });`
+
+* click
+* mouseenter
+* mouseexit
+* mousedown
+* mouseup
+* drag
+* move
+* keypress
+* keydown
+* keyup
 
 ## Importing from Stunning Designer ##
 There is an ongoing effort to allow developers to design GUI using Stunning by using drag and drop.
