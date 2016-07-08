@@ -1,5 +1,7 @@
 # Stunning #
 #### An extensive hardware-accelerated and cross-platform windowing (GUI) framework for NodeJS ####
+
+[![Join the chat at https://gitter.im/anuraagvaidya/stunning](https://badges.gitter.im/anuraagvaidya/stunning.svg)](https://gitter.im/anuraagvaidya/stunning?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Work in progress.
 
 Stunning is based on StunningRenderer, a Java-based OpenGL renderer (https://github.com/anuraagvaidya/StunningRenderer).
